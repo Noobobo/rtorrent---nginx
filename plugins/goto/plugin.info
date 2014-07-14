@@ -1,0 +1,4 @@
+description: Adds a button to the WebUI to link ExRat to other instances.
+author: Bobly
+version: 1.0
+need_rtorrent: 0

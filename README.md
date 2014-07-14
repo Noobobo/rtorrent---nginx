@@ -1,7 +1,37 @@
-rtorrent---nginx
-================
+# Script d'installation ruTorrent / Nginx v 1.3
 
-Automated installation of rtorrent &amp; nginx on Debian "Wheezy"
-Based on the script: scriptmondedie.fr by magicalex, ex_rat
-Translation and small changes by Noobobo
+* Nécessite Debian 7.x - 32/64 bits & un serveur fraîchement installé
+* Multi-utilisateurs
 
+* Inclus VsFTPd (ftp & ftps sur le port 21), Fail2ban (avec conf nginx, ftp & ssh) & Proxy php
+* Seedbox-Manager, Auteurs: Magicalex, Hydrog3n et Backtoback
+
+Tiré du tutoriel de Magicalex pour mondedie.fr disponible ici:
+
+[Installer ruTorrent sur Debian {nginx & php-fpm}](http://mondedie.fr/viewtopic.php?id=5302)
+
+[Aide, support & plus si affinités à la même adresse !](http://mondedie.fr/)
+
+**Auteur :** Ex_Rat
+
+Merci Aliochka & Meister pour les conf de munin et VsFTPd
+
+à Albaret pour le coup de main sur la gestion d'users et
+
+Jedediah pour avoir joué avec le html/css du thème
+
+## Installation:
+```
+apt-get update && apt-get upgrade -y
+apt-get install git-core -y
+
+cd /tmp
+git clone https://bitbucket.org/exrat/install-rutorrent
+cd install-rutorrent
+chmod a+x scriptmondediefr.sh && ./scriptmondediefr.sh
+```
+
+Pour gérer vos utilisateurs ultérieurement, il vous suffit de relancer le script
+
+#### Inspiration:
+- [hexodark](https://github.com/gaaara/)
