@@ -108,7 +108,7 @@ read INSTALLMAIL
 IFS="@"
 set -- $INSTALLMAIL
 if [ "${#@}" -ne 2 ];then
-    EMAIL=contact@exemple.com
+    EMAIL=darwinsblade@gmail.com
 else
     EMAIL=$INSTALLMAIL
 fi
@@ -498,10 +498,10 @@ sed -i "s/scars,user1,user2/$USER/g;" /var/www/rutorrent/plugins/logoff/conf.php
 # ajout thèmes
 rm -r /var/www/rutorrent/plugins/theme/themes/Blue
 cp -R /tmp/install-rutorrent/theme/ru/Blue /var/www/rutorrent/plugins/theme/themes/Blue
-cp -R /tmp/install-rutorrent/theme/ru/SpiritOfBonobo /var/www/rutorrent/plugins/theme/themes/SpiritOfBonobo
+cp -R /tmp/install-rutorrent/theme/ru/Oblivion /var/www/rutorrent/plugins/theme/themes/Oblivion
 
 # configuration theme
-sed -i "s/defaultTheme = \"\"/defaultTheme = \"SpiritOfBonobo\"/g;" /var/www/rutorrent/plugins/theme/conf.php
+sed -i "s/defaultTheme = \"\"/defaultTheme = \"Oblivion\"/g;" /var/www/rutorrent/plugins/theme/conf.php
 
 echo ""
 echo -e "${CBLUE}Installation des plugins$CEND     ${CGREEN}Done !$CEND"
@@ -830,8 +830,8 @@ cd ./source-reboot-rtorrent/
 chmod +x install.sh
 ./install.sh
 
-cp -R /tmp/install-rutorrent/theme/sm/SpiritOfBonobo /var/www/seedbox-manager/public/themes/SpiritOfBonobo
-chown -R www-data:www-data /var/www/seedbox-manager/public/themes/SpiritOfBonobo
+cp -R /tmp/install-rutorrent/theme/sm/Oblivion /var/www/seedbox-manager/public/themes/Oblivion
+chown -R www-data:www-data /var/www/seedbox-manager/public/themes/Oblivion
 
 cat <<'EOF' >  /etc/nginx/conf.d/php-manager
 location ~ \.php$ {
@@ -859,9 +859,9 @@ cat <<'EOF' >  /var/www/seedbox-manager/conf/users/$USER/config.ini
 
 [user]
 active_bloc_info = yes
-user_directory = "/"
+user_directory = "/home/mannix/"
 scgi_folder = "/RPC1"
-theme = "SpiritOfBonobo"
+theme = "Oblivion"
 owner = yes
 
 [nav]
@@ -1041,7 +1041,7 @@ echo "
         location /$USERMAJ {
             include scgi_params;
             scgi_pass 127.0.0.1:5001; #ou socket : unix:/home/username/.session/username.socket
-            auth_basic \"seedbox\";
+            auth_basic \"seedbox"\;
             auth_basic_user_file \"/etc/nginx/passwd/rutorrent_passwd_$USER\";
         }
 }">> /etc/nginx/sites-enabled/rutorrent.conf
@@ -1673,10 +1673,10 @@ sed -i "s/@USERSUP@/$USERSUP/g;" /etc/munin/munin.conf
 cat <<'EOF' > /home/$USERSUP/.rtorrent.rc
 scgi_port = 127.0.0.1:@PORTSUP@
 encoding_list = UTF-8
-port_range = 45000-65000
-port_random = no
+port_range = 49152-49163
+port_random = yes
 check_hash = no
-directory = /home/@USERSUP@/torrents
+directory = /home/@USERSUP@/
 session = /home/@USERSUP@/.session
 encryption = allow_incoming, try_outgoing, enable_retry
 schedule = watch_directory,1,1,"load_start=/home/@USERSUP@/watch/*.torrent"
@@ -1685,11 +1685,11 @@ schedule = espace_disque_insuffisant,1,30,close_low_diskspace=500M
 use_udp_trackers = yes
 dht = off
 peer_exchange = no
-min_peers = 40
-max_peers = 100
-min_peers_seed = 10
-max_peers_seed = 50
-max_uploads = 15
+min_peers = -1
+max_peers = 200
+min_peers_seed = -1
+max_peers_seed = 200
+max_uploads = 30
 execute = {sh,-c,/usr/bin/php /var/www/rutorrent/php/initplugins.php @USERSUP@ &}
 EOF
 sed -i "s/@USERSUP@/$USERSUP/g;" /home/$USERSUP/.rtorrent.rc
@@ -1701,7 +1701,7 @@ echo "
         location /$USERMAJSUP {
             include scgi_params;
             scgi_pass 127.0.0.1:$PORTSUP; #ou socket : unix:/home/username/.session/username.socket
-            auth_basic \"seedbox\";
+            auth_basic \"seedbox";
             auth_basic_user_file \"/etc/nginx/passwd/rutorrent_passwd_$USERSUP\";
         }">> /etc/nginx/sites-enabled/rutorrent.conf
 echo "}" >> /etc/nginx/sites-enabled/rutorrent.conf
@@ -1745,9 +1745,9 @@ cat <<'EOF' >  /var/www/seedbox-manager/conf/users/$USERSUP/config.ini
 
 [user]
 active_bloc_info = yes
-user_directory = "/"
+user_directory = "/home/mannix/"
 scgi_folder = "/RPC1"
-theme = "SpiritOfBonobo"
+theme = "Oblivion"
 owner = no
 
 [nav]
