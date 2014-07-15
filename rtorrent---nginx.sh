@@ -23,7 +23,7 @@
 # apt-get install git-core -y
 #
 # cd /tmp
-# wget http://pastebin.com/u/noobobo/rtorrent---nginx.sh
+# git clone https://github.com/Noobobo/rtorrent---nginx.git
 # cd install-rutorrent
 # chmod a+x rtorrent---nginx.sh && ./rtorrent---nginx.sh
 #
@@ -1044,7 +1044,7 @@ echo "
             auth_basic \"seedbox"\;
             auth_basic_user_file \"/etc/nginx/passwd/rutorrent_passwd_$USER\";
 }
-">> /etc/nginx/sites-enabled/rutorrent.conf
+>> /etc/nginx/sites-enabled/rutorrent.conf
 
 mkdir /var/www/rutorrent/conf/users/$USER
 
