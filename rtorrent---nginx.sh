@@ -10,8 +10,8 @@
 # Seedbox-Manager, Auteurs: Magicalex, Hydrog3n et Backtoback
 #
 # Tiré du tutoriel de Magicalex pour lufki.org disponible ici:
-# http://lufki.org/viewtopic.php?id=5302
-# Aide, support & plus si affinités à la même adresse ! http://lufki.org/
+# http://mondedie.fr/viewtopic.php?id=5302
+# Aide, support & plus si affinités à la même adresse ! http://mondedie.fr/
 #
 # Merci Aliochka & Meister pour les conf de munin et VsFTPd
 # à Albaret pour le coup de main sur# la gestion d'users et
@@ -108,7 +108,7 @@ read INSTALLMAIL
 IFS="@"
 set -- $INSTALLMAIL
 if [ "${#@}" -ne 2 ];then
-    EMAIL=contact@exemple.com
+    EMAIL=wtf@lufki.org
 else
     EMAIL=$INSTALLMAIL
 fi
@@ -641,13 +641,13 @@ server {
 	## fin config accueil serveur ##
 
 	## début config proxy ##
-
-	#location ^~ /proxy {
-	  root /var/www;
-	    include /etc/nginx/conf.d/php;
-	    include /etc/nginx/conf.d/cache;
-	}
-
+#
+#	#location ^~ /proxy {
+#	  root /var/www;
+#    include /etc/nginx/conf.d/php;
+#	    include /etc/nginx/conf.d/cache;
+#	}
+#
 	## fin config proxy ##
 
 	## début config rutorrent ##
@@ -881,7 +881,7 @@ active_reboot = yes
 
 [support]
 active_support = yes
-adresse_mail = "darwinsblade@gmail.com"
+adresse_mail = "wtf@lufki.org"
 
 [logout]
 url_redirect = "http://cakebox.lufki.org"
@@ -2594,7 +2594,7 @@ sed -i "s/rutorrent.lufki.org/$IP\/$USER.html/g;" /var/www/seedbox-manager/conf/
 sed -i "s/proxy.lufki.org/$IP\/$USER.html/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
 sed -i "s/lufki.org/$IP\/$USER.html/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
 sed -i "s/RPC1/$USERMAJ/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
-sed -i "s/darwinsblade@gmail.com/$EMAIL/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
+sed -i "s/wtf@lufki.org/$EMAIL/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
 
 chown -R www-data:www-data /var/www/seedbox-manager/conf/users/
 
