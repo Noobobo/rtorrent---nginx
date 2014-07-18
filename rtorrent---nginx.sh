@@ -643,10 +643,10 @@ server {
 	## début config proxy ##
 
 	#location ^~ /proxy {
-	#   root /var/www;
-	#    include /etc/nginx/conf.d/php;
-	#    include /etc/nginx/conf.d/cache;
-	#}
+	  root /var/www;
+	    include /etc/nginx/conf.d/php;
+	    include /etc/nginx/conf.d/cache;
+	}
 
 	## fin config proxy ##
 
@@ -861,11 +861,11 @@ cat <<'EOF' >  /var/www/seedbox-manager/conf/users/$USER/config.ini
 active_bloc_info = yes
 user_directory = "/home/mannix/"
 scgi_folder = "/RPC1"
-theme = "SpiritOfBonobo"
+theme = "Oblivion"
 owner = yes
 
 [nav]
-data_link = "url = https://rutorrent.lufki.org, name = rutorrent
+data_link = "url = https://lufki.org/rutorrent, name = rutorrent
 url = https://proxy.lufki.org, name = proxy
 url = https://graph.lufki.org, name = graph
 url = https://log.lufki.org, name = log web
@@ -884,7 +884,7 @@ active_support = yes
 adresse_mail = "darwinsblade@gmail.com"
 
 [logout]
-url_redirect = "http://lufki.org"
+url_redirect = "http://cakebox.lufki.org"
 
 EOF
 sed -i "s/\"\/\"/\"\/home\/$USER\"/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
@@ -1013,7 +1013,7 @@ encoding_list = UTF-8
 port_range = 49152-49163
 port_random = yes
 check_hash = no
-directory = /home/@USER@/torrents
+directory = /home/@USER@/
 session = /home/@USER@/.session
 encryption = allow_incoming, try_outgoing, enable_retry
 schedule = watch_directory,1,1,"load_start=/home/@USER@/watch/*.torrent"
@@ -1745,13 +1745,13 @@ cat <<'EOF' >  /var/www/seedbox-manager/conf/users/$USERSUP/config.ini
 
 [user]
 active_bloc_info = yes
-user_directory = "/"
+user_directory = "/home/mannix/"
 scgi_folder = "/RPC1"
-theme = "SpiritOfBonobo"
+theme = "OLblivion"
 owner = no
 
 [nav]
-data_link = "url = https://rutorrent.lufki.org, name = rutorrent
+data_link = "url = https://lufki.org/rutorrent, name = rutorrent
 url = https://proxy.lufki.org, name = proxy
 url = https://graph.lufki.org, name = graph"
 
@@ -1768,7 +1768,7 @@ active_support = yes
 adresse_mail = "darwinsblade@gmail.com"
 
 [logout]
-url_redirect = "http://lufki.org"
+url_redirect = "http://cakebox.lufki.org"
 
 EOF
 sed -i "s/\"\/\"/\"\/home\/$USERSUP\"/g;" /var/www/seedbox-manager/conf/users/$USERSUP/config.ini
@@ -2421,11 +2421,11 @@ cat <<'EOF' >  /var/www/seedbox-manager/conf/users/$USER/config.ini
 active_bloc_info = yes
 user_directory = "/home/mannix/"
 scgi_folder = "/RPC1"
-theme = "ObLivion"
+theme = "Oblivion"
 owner = no
 
 [nav]
-data_link = "url = https://rutorrent.lufki.org, name = rutorrent
+data_link = "url = https://lufki.org/rutorrent, name = rutorrent
 url = https://proxy.lufki.org, name = proxy
 url = https://graph.lufki.org, name = graph"
 
@@ -2442,7 +2442,7 @@ active_support = yes
 adresse_mail = "darwinsblade@gmail.com"
 
 [logout]
-url_redirect = "http://lufki.org"
+url_redirect = "http://cakebox.lufki.org"
 
 EOF
 sed -i "s/\"\/\"/\"\/home\/$USER\"/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
@@ -2566,11 +2566,11 @@ cat <<'EOF' >  /var/www/seedbox-manager/conf/users/$USER/config.ini
 active_bloc_info = yes
 user_directory = "/home/mannix/"
 scgi_folder = "/RPC1"
-theme = "SpiritOfBonobo"
+theme = "Oblivion"
 owner = no
 
 [nav]
-data_link = "url = https://rutorrent.lufki.org, name = rutorrent
+data_link = "url = https://lufki.org/rutorrent, name = rutorrent
 url = https://proxy.lufki.org, name = proxy"
 
 [ftp]
@@ -2579,14 +2579,14 @@ port_ftp = "21"
 port_sftp = "22"
 
 [rtorrent]
-active_reboot = no
+active_reboot = yes
 
 [support]
 active_support = yes
 adresse_mail = "darwinsblade@gmail.com"
 
 [logout]
-url_redirect = "http://lufki.org"
+url_redirect = "http://cakebox.lufki.org"
 
 EOF
 sed -i "s/\"\/\"/\"\/home\/$USER\"/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
