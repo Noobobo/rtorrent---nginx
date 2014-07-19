@@ -894,7 +894,7 @@ sed -i "s/graph.lufki.org/$IP\/graph\/$USER.php/g;" /var/www/seedbox-manager/con
 sed -i "s/log.lufki.org/$IP\/rutorrent\/logserver\/access.html/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
 sed -i "s/monitoring.lufki.org/$IP\/monitoring\//g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
 sed -i "s/RPC1/$USERMAJ/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
-sed -i "s/darwinsblade@gmail.com/$EMAIL/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
+sed -i "s/wtf@lufki.org/$EMAIL/g;" /var/www/seedbox-manager/conf/users/$USER/config.ini
 
 # verrouillage option parametre seedbox-manager
 rm /var/www/seedbox-manager/public/themes/default/template/header.html
@@ -1560,8 +1560,9 @@ if [ "$REPONSE" = "n" ]; then
 		#echo -e "${CBLUE}Vous trouverez aussi quelques informations pour faire\nvos premiers pas à cette adresse:$CEND"
 		#echo -e "${CYELLOW}http://$IP/aide/$CEND"
 		echo ""
-		echo -e "${CBLUE}           Bon download, restez en seed et à bientôt sur lufki.org$CEND"
-		echo -e "${CBLUE}                  Ex_Rat - http://lufki.org/$CEND"
+		echo -e "${CBLUE}           That's it, mate! You're Ready To Go!!$CEND"
+		echo -e "${CBLUE}                 Never forget:/$CEND"
+		echo -e "${CBLUE}                 <h1>SHARING IS CARING!!!</h1>/$CEND"
 		echo ""
 		reboot
 		break
@@ -1673,10 +1674,10 @@ sed -i "s/@USERSUP@/$USERSUP/g;" /etc/munin/munin.conf
 cat <<'EOF' > /home/$USERSUP/.rtorrent.rc
 scgi_port = 127.0.0.1:@PORTSUP@
 encoding_list = UTF-8
-port_range = 45000-65000
-port_random = no
+port_range = 49152-49163
+port_random = yes
 check_hash = no
-directory = /home/@USERSUP@/torrents
+directory = /home/@USERSUP@/
 session = /home/@USERSUP@/.session
 encryption = allow_incoming, try_outgoing, enable_retry
 schedule = watch_directory,1,1,"load_start=/home/@USERSUP@/watch/*.torrent"
@@ -1747,7 +1748,7 @@ cat <<'EOF' >  /var/www/seedbox-manager/conf/users/$USERSUP/config.ini
 active_bloc_info = yes
 user_directory = "/home/mannix/"
 scgi_folder = "/RPC1"
-theme = "OLblivion"
+theme = "Default"
 owner = no
 
 [nav]
@@ -1765,7 +1766,7 @@ active_reboot = yes
 
 [support]
 active_support = yes
-adresse_mail = "darwinsblade@gmail.com"
+adresse_mail = "wtf@lufki.org"
 
 [logout]
 url_redirect = "http://cakebox.lufki.org"
@@ -2037,8 +2038,8 @@ echo -n -e "${CGREEN}Voulez vous continuer? (y/n): $CEND"
 read VALIDE
 if [ "$VALIDE" = "n" ]; then
 	echo ""
-	echo -e "${CBLUE}           Bon download, restez en seed et à bientôt sur lufki.org$CEND"
-	echo -e "${CBLUE}                  Ex_Rat - http://lufki.org/$CEND"
+	echo -e "${CBLUE}           That's it, mate!$CEND"
+	echo -e "${CBLUE}                Ready To Go./$CEND"
 	echo ""
 	exit 1
 fi
@@ -2439,7 +2440,7 @@ active_reboot = yes
 
 [support]
 active_support = yes
-adresse_mail = "darwinsblade@gmail.com"
+adresse_mail = "wtf@lufki.org"
 
 [logout]
 url_redirect = "http://cakebox.lufki.org"
@@ -2583,7 +2584,7 @@ active_reboot = yes
 
 [support]
 active_support = yes
-adresse_mail = "darwinsblade@gmail.com"
+adresse_mail = "wtf@lufki.org"
 
 [logout]
 url_redirect = "http://cakebox.lufki.org"
@@ -2773,16 +2774,14 @@ if [ "$REBOOT" = "n" ]; then
 	echo ""
 	echo -e "${CRED}Penser à redémarrer manuellement votre serveur avant utilisation !$CEND"
 	echo ""
-	echo -e "${CBLUE}           Bon download, restez en seed et à bientôt sur lufki.org$CEND"
-	echo -e "${CBLUE}                  Ex_Rat - http://lufki.org/$CEND"
+
 	echo ""
 	exit 1
 fi
 
 if [ "$REBOOT" = "y" ]; then
 	echo ""					
-	echo -e "${CBLUE}           Bon download, restez en seed et à bientôt sur lufki.org$CEND"
-	echo -e "${CBLUE}                  Ex_Rat - http://lufki.org/$CEND"
+
 	echo ""
 	reboot
 fi
